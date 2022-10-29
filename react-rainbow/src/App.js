@@ -1,9 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
+
 import React, { useState } from 'react';
 //make ColorBlock import
 import ColorBlock from './ColorBlock'
-
+import ColorForm from './ColorForm';
 
 function App(){
     let [colors,setColors] = useState([
@@ -19,14 +18,17 @@ function App(){
         )
         })
 
+    const addColor = (newColor) => {
+        setColors([...colors, newColor])
+    }
+
     return (
-      <div className="App">
-      {colors.map((color, i) => 
-          <ColorBlock color={color} key={i}/>
-      )}
-    
-  </div>
+        <div className="App">
+            {colorMap}
+            <ColorForm addColor={addColor} />
+        </div>
     )
+
     
 }
  
